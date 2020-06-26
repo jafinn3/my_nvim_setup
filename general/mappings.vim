@@ -5,9 +5,9 @@ nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
 " TAB in general mode will move to text buffer
-nnoremap <TAB> :bnext<CR>
-" SHIFT-TAB will go back
-nnoremap <S-TAB> :bprevious<CR>
+nnoremap <S-n> :bnext<CR>
+" " SHIFT-TAB will go back
+nnoremap <S-b> :bprevious<CR>
 
 " Better tabbing
 vnoremap < <gv

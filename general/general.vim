@@ -22,3 +22,5 @@ set ruler
 
 set termguicolors
 colorscheme dracula
+
+let mapleader = ","
