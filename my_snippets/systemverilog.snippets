@@ -1,0 +1,39 @@
+snippet module "SVL module"
+module $1 (
+  input logic clk, reset_n,
+);
+
+  $0
+
+endmodule: $1
+endsnippet
+
+snippet always_ff "always_ff block" b
+always_ff @(posedge clk, negedge reset_n) begin
+  $0
+end
+endsnippet
+
+snippet always_comb "always_comb block" b
+always_comb begin
+  $0
+end
+endsnippet
+
+snippet begin "begin/end block" b
+begin
+  $0
+end
+endsnippet
+
+snippet if "if statement" b
+if($1) begin
+  $0
+end
+endsnippet 
+
+snippet case "Description" b
+case($1) 
+  $2: $0
+endcase
+endsnippet
