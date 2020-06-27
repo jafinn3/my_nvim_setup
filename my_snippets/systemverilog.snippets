@@ -1,4 +1,4 @@
-snippet module "SVL module"
+snippet module "Skeleton module"
 module $1 (
   input logic clk, reset_n,
 );
@@ -20,20 +20,94 @@ always_comb begin
 end
 endsnippet
 
-snippet begin "begin/end block" b
-begin
-  $0
-end
-endsnippet
-
 snippet if "if statement" b
 if($1) begin
   $0
 end
-endsnippet 
+endsnippet
 
-snippet case "Description" b
+snippet if-else "if/else block" b
+if($1) begin
+	$2
+end
+
+else begin
+	$0
+end
+endsnippet
+
+snippet else "else statement" b
+else begin
+	$0
+end
+endsnippet
+
+snippet case "case statement" b
 case($1) 
   $2: $0
 endcase
+endsnippet
+
+snippet logic16 "16-bit logic signal" b
+logic [15:0] $0
+endsnippet
+
+snippet logic8 "8-bit logic signal" b
+logic [7:0] $0
+endsnippet
+
+snippet logic2 "2-bit logic signal" b
+logic [1:0] $0
+endsnippet
+
+snippet input "input logic" b
+input  logic $0
+endsnippet
+
+snippet output "output logic" b
+output logic $0
+endsnippet
+
+snippet fsm "A skeleton FSM" b
+module $1 (
+	input  logic clk, reset_n
+);
+
+	enum logic [$2:0] {
+		$3, 
+		$4, 
+		$5, 
+		$6
+	} state, next_state;
+
+	/* Next state logic */
+	always_comb begin
+		case(state)
+			$3: $0
+			$4:
+			$5:
+			$6:
+		endcase
+	end
+
+	/* Output logic */
+	always_comb begin
+		case(state)
+			$3:
+			$4:
+			$5:
+			$6:
+		endcase
+	end
+
+	always_ff @(posedge clk, negedge reset_n) begin
+		if(~reset_n) begin
+			state <= $3;
+		end
+
+		else begin
+			state <= next_state;
+		end
+	end
+endmodule: $1
 endsnippet
