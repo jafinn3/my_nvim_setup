@@ -8,6 +8,8 @@ set expandtab
 set mouse=a
 set number
 
+set cc=80
+
 set hidden
 syntax on
 syntax enable                           " Enables syntax highlighing

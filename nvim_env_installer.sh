@@ -56,3 +56,15 @@ configure_coc() {
   snap install svls
   snap install svlint
 }
+
+install_fzf() {
+  # Install fzf from github
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install 
+
+  # Install ripgrep (rg) 
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+  dpkg -i ripgrep_11.0.2_amd64.deb
+ 
+   
+}
