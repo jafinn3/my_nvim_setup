@@ -6,9 +6,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set mouse=a
+set relativenumber
 set number
 
-set cc=80
+set cc=81
 
 set hidden
 syntax on
