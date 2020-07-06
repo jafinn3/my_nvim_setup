@@ -11,5 +11,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'              " So that fzf only searches the git 
                                         " repo
+Plug 'unblevable/quick-scope'
 
 call plug#end()
