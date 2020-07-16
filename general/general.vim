@@ -1,7 +1,7 @@
 " Enable filetype detection
 filetype plugin indent on
 
-" Spaces > tabs 
+" Spaces > tabs
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -27,4 +27,4 @@ set scrolloff=2
 
 set termguicolors
 
-let mapleader = ","
+set formatoptions+=croqj " Fix auto comments for svl
