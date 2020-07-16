@@ -7,3 +7,6 @@ source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/quick-scope.vim
+source $HOME/.config/nvim/plugins/equinusocio-material.vim
+source $HOME/.config/nvim/plugins/vim-textobj.vim
+source $HOME/.config/nvim/plugins/indentLine.vim
