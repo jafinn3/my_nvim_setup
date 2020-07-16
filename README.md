@@ -87,15 +87,38 @@ Once everything is installed, you have access to these commands
 
 To use, select the lines you wish to format and type 
 
-    :ga<character>      # where <character> is any of the available format options, 
-					    # like =, ", [space], $, etc.
+    ga<character>     # where <character> is any of the available format options, 
+		      # like =, ", [space], $, etc.
 					
 I've also included a custom setting to allow formatting around '(' which is useful for SystemVerilog.
+
+#### quick-scope 
+[quick-scope](https://github.com/unblevable/quick-scope) colors letters within words for jumps with `f/F/t/T`.
+
+#### vim-textobj-user/vim-indent-object
+[vim-textobj-user](https://github.com/kana/vim-textobj-user) provides a very easy way to define custom vim text objects. I've included settings to define begin/end blocks for SystemVerilog as well as standard C style block comments. [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) defines a text object for text on the same indentation level. 
+
+    <command>ibe    # inner begin/end block
+    <command>abe    # around begin/end block
+    <command>i/     # inner /* */
+    <command>a/     # around /* */
+    <command>ii     # inner indentation level
+
+#### indentLine
+[indentLine](https://github.com/Yggdroot/indentLine) enables vertical lines in the window to indicate the tab levels. 
+
+#### vim-surround
+[vim-surround](https://github.com/tpope/vim-surround) allows easy insertion and deletion of 'surrounding' characters, like `{}, '', "", ()`, etc. Use:
+
+    ys<text obj><char> 	# insert <char> around the text object
+    ds<text obj><char>	# delete the surrounding <char>
+    cs<char1><char2> 	# change surrounding <char1> to <char2>
+    S<char>         	# in visual mode, surround selected block with <char>
 
 #### systemverilog.vim
 [systemverilog.vim](https://github.com/nachumk/systemverilog.vim) provides syntax highlighting and better indenting for SytemVerilog. I'm currently on the lookout for a better syntax highlighter though. 
 
-#### Dracula
-[Dracula](https://github.com/junegunn/vim-easy-align) is the theme I use for vim. 
+#### equinusocio-material
+[equinusocio-material](https://github.com/chuling/equinusocio-material.vim) is the theme I use for vim. 
 
 
