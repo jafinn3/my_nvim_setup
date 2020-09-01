@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = 's'
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>
@@ -6,10 +6,12 @@ nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
-" TAB in general mode will move to text buffer
-nnoremap <S-n> :bnext<CR>
-" " SHIFT-TAB will go back
-nnoremap <S-b> :bprevious<CR>
+" <Leader>n in general mode will move to text buffer
+nnoremap <Leader>n :bnext<CR>
+" <Leader>N will go back
+nnoremap <Leader>N :bprevious<CR>
+" <Leader>b will show all open buffers
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 " Better tabbing
 vnoremap < <gv

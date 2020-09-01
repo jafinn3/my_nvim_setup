@@ -6,6 +6,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set mouse=a
+
 set relativenumber
 set number
 
@@ -21,6 +22,7 @@ set fileencoding=utf-8   " The encoding written to file
 set splitright           " Vertical splits will automatically be to the right
 set t_Co=256             " Support 256 colors
 set background=dark      " tell vim what the background color looks like
+
 set ruler
 set cursorline
 set scrolloff=2

@@ -1,8 +1,4 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json"
-  ],
-  // python config
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "tsserver.trace.server": "verbose",

@@ -15,5 +15,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kana/vim-textobj-user'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
+Plug 'bkad/CamelCaseMotion'
+Plug 'tpope/vim-surround'
 
 call plug#end()
