@@ -37,7 +37,12 @@ This repository depends on neovim, Nodejs12+, python2.7, and python3.6+. The pac
     ./install_node_12.sh
     sudo apt-get install nodejs
 
+**If not on Ubuntu 16**
 
+    sudo apt install nodejs
+    sudo apt install npm
+    sudo npm install -g neovim
+    
 ----------
 
 
