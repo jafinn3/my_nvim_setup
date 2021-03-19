@@ -14,11 +14,10 @@ This repository depends on neovim, Nodejs12+, python2.7, and python3.6+. The pac
 
 **Install neovim**
 
-    sudo add-apt-repository ppa:neovim-ppa/unstable
     sudo apt-get update
     sudo apt-get install neovim
 
-**Install python3.6 (not native to Ubuntu 16)**
+**Python > 3.6**
 
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt-get install python3.6
@@ -26,18 +25,10 @@ This repository depends on neovim, Nodejs12+, python2.7, and python3.6+. The pac
    
 **Install python packages**
     
-	python3.6 -m pip install --user pynvim
+	python3 -m pip install --user pynvim
 	python -m pip install --user pynvim
 
-**Install Nodejs 12 (also not native to Ubuntu 16)**
-`install_node_21.sh` is included in this repository.
-
-    sudo apt-get purge nodejs npm 
-    chmod +x install_node_12.sh
-    ./install_node_12.sh
-    sudo apt-get install nodejs
-
-**If not on Ubuntu 16**
+**Install NodeJS and npm**
 
     sudo apt install nodejs
     sudo apt install npm
