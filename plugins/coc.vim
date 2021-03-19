@@ -150,3 +150,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
+
+augroup coc_augroup
+    autocmd!
+    autocmd FileType c,cpp,h,hpp nnoremap <leader>h :<C-u>CocCommand clangd.switchSourceHeader<CR>
+augroup end

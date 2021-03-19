@@ -2,8 +2,8 @@
 filetype plugin indent on
 
 " Spaces > tabs
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set mouse=a
 
@@ -30,3 +30,4 @@ set scrolloff=2
 set termguicolors
 
 set formatoptions+=croqj " Fix auto comments for svl
+autocmd BufRead,BufNewFile *.c0 set filetype=c

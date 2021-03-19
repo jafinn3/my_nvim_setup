@@ -1,28 +1,64 @@
 snippet module "Skeleton module"
+\`default_nettype none
+
 module $1 (
-  input logic clk, reset_n,
+	input  logic clk,
+	input  logic reset_n,
 );
 
-  $0
+	$0
 
 endmodule: $1
 endsnippet
 
+snippet tb "testbench" b
+\`default_nettype none
+
+module $1_tb ();
+	logic clk;
+	logic reset_n;
+
+	$1 dut (
+		.*
+	);
+
+	initial begin
+		clk = 0;
+		forever #5 clk = ~clk;
+	end
+
+	task reset();
+		reset_n  = 1'b1;
+		reset_n <= 1'b0;
+		@(posedge clk);
+	endtask
+
+	initial begin
+		reset();
+
+		$0
+
+		@(posedge clk);
+		$finish();
+	end
+endmodule: $1_tb
+endsnippet
+
 snippet always_ff "always_ff block" b
 always_ff @(posedge clk, negedge reset_n) begin
-  $0
+	$0
 end
 endsnippet
 
 snippet always_comb "always_comb block" b
 always_comb begin
-  $0
+	$0
 end
 endsnippet
 
 snippet if "if statement" b
 if($1) begin
-  $0
+	$0
 end
 endsnippet
 
@@ -43,8 +79,8 @@ end
 endsnippet
 
 snippet case "case statement" b
-case($1) 
-  $2: $0
+case($1)
+	$2: $0
 endcase
 endsnippet
 
@@ -70,13 +106,14 @@ endsnippet
 
 snippet fsm "A skeleton FSM" b
 module $1 (
-	input  logic clk, reset_n
+	input  logic clk,
+	input  logic reset_n,
 );
 
 	enum logic [$2:0] {
-		$3, 
-		$4, 
-		$5, 
+		$3,
+		$4,
+		$5,
 		$6
 	} state, next_state;
 
@@ -101,7 +138,7 @@ module $1 (
 	end
 
 	always_ff @(posedge clk, negedge reset_n) begin
-		if(~reset_n) begin
+		if(!reset_n) begin
 			state <= $3;
 		end
 
@@ -110,4 +147,62 @@ module $1 (
 		end
 	end
 endmodule: $1
+endsnippet
+
+snippet style "Header comments, etc" b
+/**
+ * ${1:filename}.sv
+ * ---------------
+ *
+ * ${2:brief description}
+ *
+ * Author:  Joe Finn
+ * Created: $3
+ *
+ * ${4:longer description}
+ */
+
+\`ifndef ${5:FILE_NAME}__SV
+\`define ${5:FILE_NAME}__SV
+
+\`include "transaction_monitor.sv"
+\`include "${1:filename}.sv"
+$0
+
+\`endif //${5:FILE_NAME}__SV
+
+// Local Variables:
+// verilog-library-directories:(".")
+// End:
+endsnippet
+
+snippet transaction_monitor "Transaction monitor for capstone" b
+localparam INPUT_WIDTH = $bits({
+	${1:inputs}
+});
+
+localparam OUTPUT_WIDTH = $bits({
+	${2:outputs}
+});
+
+logic [INPUT_WIDTH - 1:0]  input_signals;
+logic [OUTPUT_WIDTH - 1:0] output_signals;
+
+assign input_signals = {
+	${1:inputs}
+};
+
+assign output_signals = {
+	${2:outputs}
+}
+
+transaction_monitor #(
+	.INPUT_WIDTH  (INPUT_WIDTH),
+	.OUTPUT_WIDTH (OUTPUT_WIDTH)
+) transactionMonitor (
+	.clk,
+	.reset_n,
+	.input_signals,
+	.output_signals
+);
 endsnippet

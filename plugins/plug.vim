@@ -17,5 +17,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-surround'
+Plug 'ChristianChiarulli/codi.vim'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'tymonx/logic'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
