@@ -43,7 +43,7 @@ I use `vim-plug` to install all of my neovim plugins.
 
 **Install vim-plug**
 
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dir \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dir https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 vim-plug looks at `plugins/plug.vim` to find plugins. `:PlugInstall` can be run from inside neovim to install all listed plugins. (`:PlugClean` will remove any plugins that are currently installed but not in `plugins/plug.vim`)
 
