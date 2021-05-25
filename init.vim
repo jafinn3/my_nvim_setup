@@ -14,6 +14,5 @@ source $HOME/.config/nvim/plugins/vim-textobj.vim
 source $HOME/.config/nvim/plugins/indentLine.vim
 source $HOME/.config/nvim/plugins/surround.vim
 source $HOME/.config/nvim/plugins/camelCaseMotion.vim
-source $HOME/.config/nvim/plugins/codi.vim
 source $HOME/.config/nvim/plugins/vim-fugitive.vim
 source $HOME/.config/nvim/plugins/vim-which-key.vim
