@@ -31,3 +31,4 @@ set termguicolors
 
 set formatoptions+=croqj " Fix auto comments for svl
 autocmd BufRead,BufNewFile *.c0 set filetype=c
+autocmd BufRead,BufNewFile *.c1 set filetype=c

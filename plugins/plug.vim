@@ -8,7 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'nachumk/systemverilog.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 Plug 'unblevable/quick-scope'
 Plug 'chuling/equinusocio-material.vim'
 Plug 'michaeljsmith/vim-indent-object'
@@ -17,10 +17,12 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-surround'
-Plug 'ChristianChiarulli/codi.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'tymonx/logic'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
