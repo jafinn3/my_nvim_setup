@@ -12,28 +12,45 @@ Dependencies
 
 This repository depends on neovim, Nodejs12+, python2.7, and python3.6+. The package `pynvim` must be installed for both python2.7 and python3.6.
 
-**Install neovim**
+**Neovim**
 
     sudo apt-get update
     sudo apt-get install neovim
+
+Or, if not using a package manager:
+
+    wget https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
+    chmod u+x nvim.appimage
+
+Then, add nvim.appimage to your path
 
 **Python > 3.6**
 
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt-get install python3.6
     python3.6 -m pip install --user setuptools
-   
-**Install python packages**
+
+Or, build from source. 
+
+**Python packages**
     
 	python3 -m pip install --user pynvim
 	python -m pip install --user pynvim
 
-**Install NodeJS and npm**
+**NodeJS and npm**
 
     sudo apt install nodejs
     sudo apt install npm
     sudo npm install -g neovim
-    
+
+Or, build from source. But be warned, node is a _very_ long build.
+
+**Ripgrep**
+https://github.com/BurntSushi/ripgrep/releases
+
+**FZF**
+https://github.com/junegunn/fzf#installation
+
 ----------
 
 
@@ -51,22 +68,26 @@ vim-plug looks at `plugins/plug.vim` to find plugins. `:PlugInstall` can be run 
 [CoC](https://github.com/neoclide/coc.nvim) is an Intellisense engine for vim. It provides linting, syntax highlighting, and autocompletion for many different filetypes. CoC extensions must be installed in order to make use of this plugin. I use:
 
     :CocInstall coc-tsserver coc-python coc-json coc-snippets coc-vimlsp coc-clangd
-   If you use `coc-clangd`, it is required that you also run:
+   If you use `coc-clangd`, then you also need to install clangd and generate compile_commands.json for your project. See [here](https://clangd.llvm.org/installation.html) for more details.
    
+I've found that
 
     :CocCommand clangd.install
+    
+doesn't work. 
+
+`coc-python` is deprecated, and I will soon move to [coc-pyright](https://github.com/fannheyward/coc-pyright) for python3 support.
+
 The `coc-snippets` extension searches the `my_snippets/` directory for user snippets.
 
 #### vim-airline
-[vim-airline](https://github.com/vim-airline/vim-airline) provides a beautiful status bar at the bottom of the vim window. `plugins/airline.vim` has extra settings to provide buffer tabs at the top of the window. 
+[vim-airline](https://github.com/vim-airline/vim-airline) provides a status bar at the bottom of the vim window. `plugins/airline.vim` has extra settings to provide buffer tabs at the top of the window. 
 
 #### NERDTree
 [NERDTree](https://github.com/preservim/nerdtree) shows a directory tree at the side of the vim window, similar in style to the popular IDE/GUI text editors. I've configured `Ctrl+n` to toggle NERDTree on/off.
 
 #### fzf/fzf.vim/vim-rooter
 [fzf](https://github.com/junegunn/fzf), [fzf.vim](https://github.com/junegunn/fzf.vim), and [vim-rooter](https://github.com/airblade/vim-rooter) combine to provide extremely easy project-directory searching. fzf itself is not a vim plugin, so follow install instructions from the linked GitHub repository. vim-rooter allows you to search in an entire git repository (marked by `.git`) instead of just child directories.
-
-It is also required that you install [ripgrep.](https://github.com/BurntSushi/ripgrep)
 
 Once everything is installed, you have access to these commands
 
@@ -110,9 +131,6 @@ I've also included a custom setting to allow formatting around '(' which is usef
     ds<text obj><char>	# delete the surrounding <char>
     cs<char1><char2> 	# change surrounding <char1> to <char2>
     S<char>         	# in visual mode, surround selected block with <char>
-
-#### systemverilog.vim
-[systemverilog.vim](https://github.com/nachumk/systemverilog.vim) provides syntax highlighting and better indenting for SytemVerilog. I'm currently on the lookout for a better syntax highlighter though. 
 
 #### equinusocio-material
 [equinusocio-material](https://github.com/chuling/equinusocio-material.vim) is the theme I use for vim. 
