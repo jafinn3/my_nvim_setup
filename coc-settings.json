@@ -1,11 +1,29 @@
 {
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "tsserver.trace.server": "verbose",
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/my_snippets"
-  ],
-  "clangd.path": "/home/joe/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
-  "clangd.semanticHighlighting": true
+    "coc.preferences.rootPatterns": [
+        ".git",
+        ".hg",
+        ".projections.json"
+    ],
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": ["--generated-members=numpy.*,torch.*"],
+
+    "tsserver.trace.server": "verbose",
+    "snippets.ultisnips.directories": [
+        "~/.config/nvim/my_snippets"
+    ],
+    "clangd.path": "/home/joe/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+    "clangd.semanticHighlighting": true,
+
+    "languageserver": {
+        "svlangserver": {
+            "command": "svlangserver",
+            "filetypes": ["systemverilog"],
+            "settings": {
+                "systemverilog.launchConfiguration": "verilator -sv -Wall --lint-only"
+            }
+        }
+    }
 }

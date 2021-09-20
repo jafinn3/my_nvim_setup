@@ -31,6 +31,7 @@ module $1_tb ();
 		reset_n  = 1'b1;
 		reset_n <= 1'b0;
 		@(posedge clk);
+		reset_n <= 1'b1;
 	endtask
 
 	initial begin
@@ -96,12 +97,12 @@ snippet logic2 "2-bit logic signal" b
 logic [1:0] $0
 endsnippet
 
-snippet input "input logic" b
-input  logic $0
-endsnippet
-
-snippet output "output logic" b
-output logic $0
+snippet task "Task" b
+task ${1:task_name} (
+	$0
+);
+	
+endtask: ${1:task_name}
 endsnippet
 
 snippet fsm "A skeleton FSM" b
