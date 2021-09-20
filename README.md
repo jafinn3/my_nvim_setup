@@ -43,7 +43,7 @@ Or, build from source.
     sudo apt install npm
     sudo npm install -g neovim
 
-Or, build from source. But be warned, node is a _very_ long build.
+Or, build from source. But be warned, node is a _very_ long build. You must install a node version >= 12.0
 
 **Ripgrep**
 https://github.com/BurntSushi/ripgrep/releases
