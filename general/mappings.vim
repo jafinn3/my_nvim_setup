@@ -28,7 +28,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Delete excess whitespace
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Source init.vim with <Leader>o
 nnoremap <Leader>o :source $MYVIMRC<cr>
