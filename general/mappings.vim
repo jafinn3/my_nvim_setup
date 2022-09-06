@@ -38,3 +38,6 @@ nnoremap <Leader>o :source $MYVIMRC<cr>
 :onoremap in( :<c-u>normal! f(vi(<cr>
 " 'around next parenthesis'
 :onoremap an( :<c-u>normal! f(va(<cr>
+
+" Close buffers correctly
+nmap <silent> <Leader>d :bp\|bd #<CR>
