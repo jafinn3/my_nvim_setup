@@ -59,19 +59,20 @@ And here are my quality-of-life/visual improvement plugins:
 ## Commands & mappings ##
 Here's a list of commands and mappings that I use most often. 
 
-- For my <leader>, I use 's'. This might bug you if you dislike overwriting native vim commands, so feel free to change this to your preference. I never used s anyway.
-- <leader>s invokes lightspeed, my go-to for navigation
-- ga<text object><character> aligns text. This is useful for aligning spaces or = in code
-- <leader>gd opens a git diff view, then gdh or gdl will select which commit to use when working with merge conflicts
-- ys<text object><surround> (and S<text object><surround> in visual mode) invokes vim-surround (ds<...> deletes a surround). Common ones are ysiw", ysiw], ysiw), ysiwf, etc. 
-- <C-n> opens nvim-tree
-- <C-f> opens an FZF file search window
-- <leader>rg opens a ripgrep search window
-- <leader>n/<leader>N cycles through active buffers. <leader>b opens a fuzzy search through active buffers
-- <tab> autocomplete if available
+- For my \<leader\>, I use 's'. This might bug you if you dislike overwriting native vim commands, so feel free to change this to your preference. I never used s anyway.
+- \<leader\>s invokes lightspeed, my go-to for navigation
+- ga\<text object\><character\> aligns text. This is useful for aligning spaces or = in code
+- \<leader\>gd opens a git diff view, then gdh or gdl will select which commit to use when working with merge conflicts
+- ys\<text object\><surround\> (and S<text object\><surround\> in visual mode) invokes vim-surround (ds<...\> deletes a surround). Common ones are ysiw", ysiw], ysiw), ysiwf, etc.
+- \<C-n\> opens nvim-tree
+- \<C-f\> opens an FZF file search window
+- \<leader\>rg opens a ripgrep search window
+- \<leader\>n/<leader\>N cycles through active buffers. <leader\>b opens a fuzzy search through active buffers
+- \<tab\> autocomplete if available
 - gd goes to definition of symbol if available
-- <C-w>v to split your window
-- <C-l> and <C-h> to navigate through panes
+- \<C-w\>v to split your window
+- \<C-l\> and <C-h\> to navigate through panes
+
 
 And here are some custom text objects that I use frequently:
 - iv/av: select in/around variable segments (like for camelCasedWords or snake_cased_words)
