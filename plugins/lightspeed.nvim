@@ -1,0 +1,5 @@
+nmap <leader>s <Plug>Lightspeed_s
+nmap <leader>S <Plug>Lightspeed_S
+
+xmap <leader>s <Plug>Lightspeed_s
+xmap <leader>S <Plug>Lightspeed_S
