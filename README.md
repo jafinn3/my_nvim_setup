@@ -2,137 +2,83 @@ jafinn3's neovim setup
 ===================
 
 
-This repository contains my complete, up to date neovim setup for Ubuntu 16.04. The installer file currently does not work, instead it serves as installation documentation. 
+This repository contains my complete, up to date neovim setup.
 
 ----------
 
 
 Dependencies
 -------------
-
-This repository depends on neovim, Nodejs12+, python2.7, and python3.6+. The package `pynvim` must be installed for both python2.7 and python3.6.
-
-**Neovim**
-
-    sudo apt-get update
-    sudo apt-get install neovim
-
-Or, if not using a package manager:
-
-    wget https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
-    chmod u+x nvim.appimage
-
-Then, add nvim.appimage to your path
-
-**Python > 3.6**
-
-    sudo add-apt-repository ppa:deadsnakes/ppa
-    sudo apt-get install python3.6
-    python3.6 -m pip install --user setuptools
-
-Or, build from source. 
-
-**Python packages**
-    
-	python3 -m pip install --user pynvim
-	python -m pip install --user pynvim
-
-**NodeJS and npm**
-
-    sudo apt install nodejs
-    sudo apt install npm
-    sudo npm install -g neovim
-
-Or, build from source. But be warned, node is a _very_ long build. You must install a node version >= 12.0
-
-**Ripgrep**
-https://github.com/BurntSushi/ripgrep/releases
-
-**FZF**
-https://github.com/junegunn/fzf#installation
+- [nvim v0.7.2+](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [Python3](https://www.python.org/downloads/)
+- pynvim
+- [Nodejs v14.17.1+](https://nodejs.org/en/download/package-manager/)
+- npm v6.14.13+
+- [fzf](https://github.com/junegunn/fzf) 
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [svlangserver](https://github.com/imc-trading/svlangserver)
+- [clangd](https://clangd.llvm.org/installation.html)
+- A patched font (or, kitty + symbol mapping)
 
 ----------
 
 
 ## Plugins ##
 
-I use `vim-plug` to install all of my neovim plugins. 
+I use `vim-plug` to install all of my neovim plugins. The file `plugins/plug.vim` stores `vim-plug`'s list of plugins. All vimscript configurations for plugins are stored in `plugins/`, and lua configurations are stored in `lua/config`.
 
-**Install vim-plug**
+These are my "functional" plugins:
+- [lightspeed](https://github.com/ggandor/lightspeed.nvim)
+- [CoC](https://github.com/neoclide/coc.nvim)
+- [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+- [fzf](https://github.com/junegunn/fzf.vim)
+- [vim-rooter](https://github.com/airblade/vim-rooter)
+- [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
+- [vim-textobj-user](https://github.com/kana/vim-textobj-user)
+- [vim-textobj-parameter](https://github.com/sgur/vim-textobj-parameter)
+- [vim-textobj-variable-segment](https://github.com/Julian/vim-textobj-variable-segment)
+- [vim-surround](https://github.com/tpope/vim-surround)
+- [CamelCaseMotion](https://github.com/bkad/CamelCaseMotion)
+- [vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [plenary](https://github.com/nvim-lua/plenary.nvim)
 
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dir https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+And here are my quality-of-life/visual improvement plugins:
+- [nightfox](https://github.com/EdenEast/nightfox.nvim)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+- [bufferline](https://github.com/akinsho/bufferline.nvim)
+- [vim-airline](https://github.com/vim-airline/vim-airline)
+- [alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [vim-lsp-cxx-highlight](https://github.com/jackguo380/vim-lsp-cxx-highlight)
+- [vim-signature](https://github.com/kshenoy/vim-signature)
+- [vim-which-key](https://github.com/liuchengxu/vim-which-key)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [indentLine](https://github.com/Yggdroot/indentLine)
+- [git-blame](https://github.com/f-person/git-blame.nvim)
 
-vim-plug looks at `plugins/plug.vim` to find plugins. `:PlugInstall` can be run from inside neovim to install all listed plugins. (`:PlugClean` will remove any plugins that are currently installed but not in `plugins/plug.vim`)
+## Commands & mappings ##
+Here's a list of commands and mappings that I use most often. 
 
-#### Conquer of Completion (CoC)
-[CoC](https://github.com/neoclide/coc.nvim) is an Intellisense engine for vim. It provides linting, syntax highlighting, and autocompletion for many different filetypes. CoC extensions must be installed in order to make use of this plugin. I use:
+- For my <leader>, I use 's'. This might bug you if you dislike overwriting native vim commands, so feel free to change this to your preference. I never used s anyway.
+- <leader>s invokes lightspeed, my go-to for navigation
+- ga<text object><character> aligns text. This is useful for aligning spaces or = in code
+- <leader>gd opens a git diff view, then gdh or gdl will select which commit to use when working with merge conflicts
+- ys<text object><surround> (and S<text object><surround> in visual mode) invokes vim-surround (ds<...> deletes a surround). Common ones are ysiw", ysiw], ysiw), ysiwf, etc. 
+- <C-n> opens nvim-tree
+- <C-f> opens an FZF file search window
+- <leader>rg opens a ripgrep search window
+- <leader>n/<leader>N cycles through active buffers. <leader>b opens a fuzzy search through active buffers
+- <tab> autocomplete if available
+- gd goes to definition of symbol if available
+- <C-w>v to split your window
+- <C-l> and <C-h> to navigate through panes
 
-    :CocInstall coc-tsserver coc-python coc-json coc-snippets coc-vimlsp coc-clangd
-   If you use `coc-clangd`, then you also need to install clangd and generate compile_commands.json for your project. See [here](https://clangd.llvm.org/installation.html) for more details.
-   
-I've found that
+And here are some custom text objects that I use frequently:
+- iv/av: select in/around variable segments (like for camelCasedWords or snake_cased_words)
+- i,/a,: select in/around a parameter to a function (or similarly structured syntax)
+- ii/ai: select in/around text at the same indent level
+- ibe/abe: select in/around begin/end, used solely for SystemVerilog
+- i/ and a/: select in/around multiline C-style comment blocks
 
-    :CocCommand clangd.install
-    
-doesn't work. 
-
-`coc-python` is deprecated, and I will soon move to [coc-pyright](https://github.com/fannheyward/coc-pyright) for python3 support.
-
-The `coc-snippets` extension searches the `my_snippets/` directory for user snippets.
-
-#### vim-airline
-[vim-airline](https://github.com/vim-airline/vim-airline) provides a status bar at the bottom of the vim window. `plugins/airline.vim` has extra settings to provide buffer tabs at the top of the window. 
-
-#### NERDTree
-[NERDTree](https://github.com/preservim/nerdtree) shows a directory tree at the side of the vim window, similar in style to the popular IDE/GUI text editors. I've configured `Ctrl+n` to toggle NERDTree on/off.
-
-#### fzf/fzf.vim/vim-rooter
-[fzf](https://github.com/junegunn/fzf), [fzf.vim](https://github.com/junegunn/fzf.vim), and [vim-rooter](https://github.com/airblade/vim-rooter) combine to provide extremely easy project-directory searching. fzf itself is not a vim plugin, so follow install instructions from the linked GitHub repository. vim-rooter allows you to search in an entire git repository (marked by `.git`) instead of just child directories.
-
-Once everything is installed, you have access to these commands
-
-    :Rg       # searches for a word/phrase within any file in the current git repository
-    :FZF      # searches for a filename in the current git repository
-	:Lines    # searches for text in all open buffers
-
-#### vim-easy-align
-[easy-align](https://github.com/junegunn/vim-easy-align) allows you to align multiple lines around a character, to create nicely formatted code like:
-
-    char *first_name = "John"
-    char *last_name  = "Smith"
-    char *state      = "Maine"
-
-To use, select the lines you wish to format and type 
-
-    ga<character>     # where <character> is any of the available format options, 
-		      # like =, ", [space], $, etc.
-					
-I've also included a custom setting to allow formatting around '(' which is useful for SystemVerilog.
-
-#### quick-scope 
-[quick-scope](https://github.com/unblevable/quick-scope) colors letters within words for jumps with `f/F/t/T`.
-
-#### vim-textobj-user/vim-indent-object
-[vim-textobj-user](https://github.com/kana/vim-textobj-user) provides a very easy way to define custom vim text objects. I've included settings to define begin/end blocks for SystemVerilog as well as standard C style block comments. [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) defines a text object for text on the same indentation level. 
-
-    <command>ibe    # inner begin/end block
-    <command>abe    # around begin/end block
-    <command>i/     # inner /* */
-    <command>a/     # around /* */
-    <command>ii     # inner indentation level
-
-#### indentLine
-[indentLine](https://github.com/Yggdroot/indentLine) enables vertical lines in the window to indicate the tab levels. 
-
-#### vim-surround
-[vim-surround](https://github.com/tpope/vim-surround) allows easy insertion and deletion of 'surrounding' characters, like `{}, '', "", ()`, etc. Use:
-
-    ys<text obj><char> 	# insert <char> around the text object
-    ds<text obj><char>	# delete the surrounding <char>
-    cs<char1><char2> 	# change surrounding <char1> to <char2>
-    S<char>         	# in visual mode, surround selected block with <char>
-
-#### equinusocio-material
-[equinusocio-material](https://github.com/chuling/equinusocio-material.vim) is the theme I use for vim. 
 
 
