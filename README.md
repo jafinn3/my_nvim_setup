@@ -2,7 +2,7 @@ jafinn3's neovim setup
 ===================
 
 
-This repository contains my complete, up to date neovim setup.
+This repository contains my complete, (mostly) up to date neovim setup.
 
 ----------
 
@@ -39,7 +39,7 @@ These are my "functional" plugins:
 - [vim-textobj-variable-segment](https://github.com/Julian/vim-textobj-variable-segment)
 - [vim-surround](https://github.com/tpope/vim-surround)
 - [CamelCaseMotion](https://github.com/bkad/CamelCaseMotion)
-- [vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [diffview](https://github.com/sindrets/diffview.nvim)
 - [plenary](https://github.com/nvim-lua/plenary.nvim)
 
 And here are my quality-of-life/visual improvement plugins:
@@ -47,6 +47,7 @@ And here are my quality-of-life/visual improvement plugins:
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 - [bufferline](https://github.com/akinsho/bufferline.nvim)
+- [scope](https://github.com/tiagovla/scope.nvim)
 - [vim-airline](https://github.com/vim-airline/vim-airline)
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [vim-lsp-cxx-highlight](https://github.com/jackguo380/vim-lsp-cxx-highlight)
@@ -55,31 +56,30 @@ And here are my quality-of-life/visual improvement plugins:
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [indentLine](https://github.com/Yggdroot/indentLine)
 - [git-blame](https://github.com/f-person/git-blame.nvim)
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 ## Commands & mappings ##
 Here's a list of commands and mappings that I use most often. 
 
 - For my \<leader\>, I use 's'. This might bug you if you dislike overwriting native vim commands, so feel free to change this to your preference. I never used s anyway.
-- \<leader\>s invokes lightspeed, my go-to for navigation
+- t/T invokes lightspeed. Its default of s/S conflicts with my leader, and I barely used t/T
 - ga\<text object\><character\> aligns text. This is useful for aligning spaces or = in code
-- \<leader\>gd opens a git diff view, then gdh or gdl will select which commit to use when working with merge conflicts
 - ys\<text object\><surround\> (and S<text object\><surround\> in visual mode) invokes vim-surround (ds<...\> deletes a surround). Common ones are ysiw", ysiw], ysiw), ysiwf, etc.
 - \<C-n\> opens nvim-tree
 - \<C-f\> opens an FZF file search window
 - \<leader\>rg opens a ripgrep search window
 - \<leader\>n/<leader\>N cycles through active buffers. <leader\>b opens a fuzzy search through active buffers
 - \<tab\> autocomplete if available
-- gd goes to definition of symbol if available
+- gd goes to definition of symbol if available. If the symbol is in the current file, it will jump normally; if it exists in a different file, it will open a vertical split.
 - \<C-w\>v to split your window
 - \<C-l\> and <C-h\> to navigate through panes
+- \<leader\>gd{o, f, c, h, l, } is mapped to a bunch of commands for diffview
+- ? opens a fuzzy search within the current window
 
 
 And here are some custom text objects that I use frequently:
 - iv/av: select in/around variable segments (like for camelCasedWords or snake_cased_words)
 - i,/a,: select in/around a parameter to a function (or similarly structured syntax)
 - ii/ai: select in/around text at the same indent level
-- ibe/abe: select in/around begin/end, used solely for SystemVerilog
+- ibe/abe: select in/around begin/end, used exclusively for SystemVerilog
 - i/ and a/: select in/around multiline C-style comment blocks
-
-
-
