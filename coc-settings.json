@@ -1,0 +1,6 @@
+{
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
+    "diagnostic.checkCurrentLine": true,
+    "coc.preferences.jumpCommand": "CocSplitIfNotOpen"
+}

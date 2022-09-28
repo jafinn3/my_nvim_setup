@@ -46,7 +46,31 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
+
+" https://github.com/neoclide/coc.nvim/issues/586
+function! SplitIfNotOpen(...)
+    let fname = a:1
+    let call = ''
+    if a:0 == 2
+	let fname = a:2
+	let call = a:1
+    endif
+    let bufnum=bufnr(expand(fname))
+    let winnum=bufwinnr(bufnum)
+    if winnum != -1
+	" Jump to existing split
+	exe winnum . "wincmd w"
+    else
+	" Make new split as usual
+	exe "vsplit " . fname
+    endif
+    " Execute the cursor movement command
+    exe call
+endfunction
+
+command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
 nmap <silent> gd <Plug>(coc-definition)
+" nmap gd :only<bar>vsplit<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
