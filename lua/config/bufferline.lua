@@ -7,8 +7,19 @@ require("bufferline").setup{
             reveal = {'close'}
         },
         buffer_close_icon = '',
-        close_icon = '',
-        show_close_icon = true
+        show_buffer_close_icons = true,
+        diagnostics = "coc",
+
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                separator = true -- use a "true" to enable the default, or set your own character
+            }
+        },
+        tab_size = 36,
+        max_name_length = 36
     }
 }
 
