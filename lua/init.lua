@@ -1,6 +1,6 @@
 require('config.alpha')
 require('config.lightspeed')
--- require('config.hop')
 require('config.web-devicons')
 require('config.bufferline')
 require('config.nvimtree')
+require('config.scope')
