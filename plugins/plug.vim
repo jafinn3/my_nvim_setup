@@ -32,5 +32,6 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tiagovla/scope.nvim'
+Plug 'xiyaowong/virtcolumn.nvim'
 
 call plug#end()
