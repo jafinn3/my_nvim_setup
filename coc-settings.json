@@ -5,5 +5,11 @@
     "coc.preferences.jumpCommand": "CocSplitIfNotOpen",
     "snippets.ultisnips.directories": [
         "my_snippets"
-    ]
+    ],
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--query-driver=**",
+        "--log=verbose"
+    ],
+    "clangd.checkUpdates": true
 }
