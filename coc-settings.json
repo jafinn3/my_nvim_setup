@@ -11,5 +11,6 @@
         "--query-driver=**",
         "--log=verbose"
     ],
-    "clangd.checkUpdates": true
+    "clangd.checkUpdates": true,
+    "python.linting.pylintEnabled": true
 }
