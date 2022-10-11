@@ -69,8 +69,22 @@ function! SplitIfNotOpen(...)
     exe call
 endfunction
 
+" https://github.com/neoclide/coc.nvim/issues/1445
+function! s:GoToDefinition()
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
+
+  let ret = execute("silent! normal \g]")
+  if ret =~ "Error" || ret =~ "错误"
+    call searchdecl(expand('<cword>'))
+  endif
+endfunction
+
 command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
-nmap <silent> gd <Plug>(coc-definition)
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
+" nmap <silent> gd <Plug>(coc-definition)
 " nmap gd :only<bar>vsplit<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

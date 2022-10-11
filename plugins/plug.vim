@@ -33,5 +33,6 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tiagovla/scope.nvim'
 Plug 'xiyaowong/virtcolumn.nvim'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
