@@ -8,6 +8,7 @@ require("bufferline").setup{
         },
         buffer_close_icon = '',
         show_buffer_close_icons = true,
+        show_close_icon = false,
         diagnostics = "coc",
 
         offsets = {
@@ -16,6 +17,12 @@ require("bufferline").setup{
                 text = "File Explorer",
                 highlight = "Directory",
                 separator = true -- use a "true" to enable the default, or set your own character
+            },
+            {
+                filetype = "DiffviewFiles",
+                text = "Changes",
+                highlight = "Directory",
+                separator = true
             }
         },
         tab_size = 36,
