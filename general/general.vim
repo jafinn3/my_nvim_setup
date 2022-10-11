@@ -10,7 +10,7 @@ set mouse=a
 set relativenumber
 set number
 
-set cc=80
+set cc=80,120
 
 set hidden
 syntax on
