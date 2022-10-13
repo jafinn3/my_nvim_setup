@@ -59,11 +59,13 @@ function! SplitIfNotOpen(...)
     let bufnum=bufnr(expand(fname))
     let winnum=bufwinnr(bufnum)
     if winnum != -1
-	" Jump to existing split
-	exe winnum . "wincmd w"
+        " Jump to existing split
+        exe winnum . "wincmd w"
+    elseif tabpagewinnr(tabpagenr(), '$') < 3
+        " Make new split as usual
+        exe "vsplit " . fname
     else
-	" Make new split as usual
-	exe "vsplit " . fname
+        exe "e " . fname
     endif
     " Execute the cursor movement command
     exe call
