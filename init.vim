@@ -4,7 +4,6 @@ source $HOME/.config/nvim/general/mappings.vim
 source $HOME/.config/nvim/general/my_fns.vim
 source $HOME/.config/nvim/general/my_cmds.vim
 source $HOME/.config/nvim/plugins/easyalign.vim
-source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/nightfox.vim
@@ -18,6 +17,7 @@ source $HOME/.config/nvim/plugins/nvimtree.nvim
 source $HOME/.config/nvim/plugins/diffview.vim
 source $HOME/.config/nvim/plugins/git-blame.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
+source $HOME/.config/nvim/general/project_config.vim
 
 set completeopt=menu,menuone,noselect
 lua require("init")
