@@ -12,8 +12,8 @@ source $HOME/.config/nvim/plugins/indentLine.vim
 source $HOME/.config/nvim/plugins/surround.vim
 source $HOME/.config/nvim/plugins/camelCaseMotion.vim
 source $HOME/.config/nvim/plugins/vim-which-key.vim
-source $HOME/.config/nvim/plugins/lightspeed.nvim
-source $HOME/.config/nvim/plugins/nvimtree.nvim
+source $HOME/.config/nvim/plugins/lightspeed.vim
+source $HOME/.config/nvim/plugins/nvimtree.vim
 source $HOME/.config/nvim/plugins/diffview.vim
 source $HOME/.config/nvim/plugins/git-blame.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
