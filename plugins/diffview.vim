@@ -1,10 +1,10 @@
 set fillchars+=diff:/
 
-nnoremap <leader>gdo :DiffviewOpen -uno<CR>
-nnoremap <leader>gd  :DiffviewFileHistory<CR>
-nnoremap <leader>gdf :DiffviewFileHistory %<CR>
-nnoremap <leader>gdc :DiffviewClose<CR>
-nnoremap <leader>gdh :diffget //2<CR>
-nnoremap <leader>gdl :diffget //3<CR>
+nnoremap <leader>do :DiffviewOpen -uno<CR>
+nnoremap <leader>d  :DiffviewFileHistory<CR>
+nnoremap <leader>df :DiffviewFileHistory %<CR>
+nnoremap <leader>dx :DiffviewClose<CR>
+nnoremap <leader>dh :diffget //2<CR>
+nnoremap <leader>dl :diffget //3<CR>
 
 

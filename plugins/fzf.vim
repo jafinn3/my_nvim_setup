@@ -15,7 +15,6 @@ map <leader>b :Buffers<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
-nnoremap ? :BLines<CR>
 
 
 let g:fzf_tags_command = 'ctags -R .'
