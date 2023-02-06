@@ -32,7 +32,18 @@ require('lspconfig')['svlangserver'].setup {
 
 --[[
 require('lspconfig')['clangd'].setup {
-    capabilities = capabilities
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        clangd = {
+            path = '/opt/imc/llvm-13.0.0/bin/clangd',
+            arguments = {
+                "--background-index",
+                "--compile-commands-dir=/home/user/git/fpga/",
+                "-clang-tidy=0"
+            }
+        }
+    }
 }
 --]]
 
