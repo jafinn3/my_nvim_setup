@@ -35,3 +35,5 @@ set formatoptions+=croqj " Fix auto comments for svl
 autocmd BufRead,BufNewFile *.c0 set filetype=c
 autocmd BufRead,BufNewFile *.c1 set filetype=c
 autocmd BufRead,BufNewFile *.svjt set filetype=systemverilog
+autocmd BufReadPost *.kt setlocal filetype=kotlin
+autocmd BufReadPost *.kts setlocal filetype=kotlin

@@ -36,7 +36,14 @@ require('lspconfig')['clangd'].setup {
 }
 --]]
 
-require('lspconfig')['pyright'].setup{}
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+require('lspconfig').kotlin_language_server.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 
 -- Diagnostics settings & toggling
 
