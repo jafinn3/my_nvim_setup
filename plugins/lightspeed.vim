@@ -4,6 +4,9 @@ nmap T <Plug>Lightspeed_S
 xmap t <Plug>Lightspeed_s
 xmap F <Plug>Lightspeed_S
 
+nmap <Leader>t <Plug>Lightspeed_omni_gs
+xmap <Leader>t <Plug>Lightspeed_omni_gs
+
 let g:lightspeed_last_motion = ''
 augroup lightspeed_last_motion
 autocmd!

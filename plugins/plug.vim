@@ -40,5 +40,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'mfussenegger/nvim-dap'
+Plug 'trmckay/based.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
