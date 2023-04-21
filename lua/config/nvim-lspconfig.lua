@@ -78,5 +78,5 @@ function _G.toggle_diagnostics()
   end
 end
 
-vim.api.nvim_set_keymap('n', '<leader>td', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
+vim.api.nvim_create_user_command('ToggleDiagnostics', ':call v:lua.toggle_diagnostics()<CR>', {})
 
