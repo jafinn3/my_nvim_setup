@@ -15,7 +15,7 @@ nnoremap <Leader>n :bnext<CR>
 " <Leader>N will go back
 nnoremap <Leader>N :bprevious<CR>
 " <Leader>b will show all open buffers
-nnoremap <Leader>bo :ls<CR>:b<Space>
+nnoremap <Leader>b :ls<CR>:b<Space>
 " Close buffers correctly
 nmap <silent> <Leader>bd :bp\|bd #<CR>
 
@@ -47,3 +47,6 @@ nnoremap <Leader>o :source $MYVIMRC<cr>
 :onoremap in( :<c-u>normal! f(vi(<cr>
 " 'around next parenthesis'
 :onoremap an( :<c-u>normal! f(va(<cr>
+
+" switch between header and source with gh
+map gh :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
