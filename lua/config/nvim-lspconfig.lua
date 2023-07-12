@@ -1,7 +1,46 @@
 -- vim.lsp.set_log_level("debug")
 local opts = { noremap=true, silent=true }
 
-local on_attach = function(client, bufnr)
+local navic = require('nvim-navic')
+navic.setup {
+    icons = {
+        File          = " ",
+        Module        = " ",
+        Namespace     = " ",
+        Package       = " ",
+        Class         = " ",
+        Method        = " ",
+        Property      = " ",
+        Field         = " ",
+        Constructor   = " ",
+        Enum          = " ",
+        Interface     = " ",
+        Function      = "󰊕 ",
+        Variable      = " ",
+        Constant      = " ",
+        String        = " ",
+        Number        = " ",
+        Boolean       = " ",
+        Array         = " ",
+        Object        = " ",
+        Key           = " ",
+        Null          = "󰟢 ",
+        EnumMember    = " ",
+        Struct        = " ",
+        Event         = " ",
+        Operator      = " ",
+        TypeParameter = " ",
+    },
+    highlight = false,
+    separator = " > ",
+    depth_limit = 4,
+    depth_limit_indicator = "..",
+    safe_output = true,
+    lazy_update_context = false,
+    click = true
+}
+
+local on_attach_common = function(client, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
@@ -9,10 +48,17 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 end
 
+local on_attach_navic = function(client, bufnr)
+    on_attach_common(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+end
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('lspconfig')['svlangserver'].setup {
-    on_attach = on_attach,
+    on_attach = on_attach_common,
     capabilities = capabilities,
     settings = {
         systemverilog = {
@@ -31,7 +77,7 @@ require('lspconfig')['svlangserver'].setup {
 }
 
 require('lspconfig')['clangd'].setup {
-    on_attach = on_attach,
+    on_attach = on_attach_navic,
     capabilities = capabilities,
     settings = {
         clangd = {
@@ -46,11 +92,11 @@ require('lspconfig')['clangd'].setup {
 }
 
 require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
+    on_attach = on_attach_navic,
     capabilities = capabilities
 }
 require('lspconfig').kotlin_language_server.setup {
-    on_attach = on_attach,
+    on_attach = on_attach_common,
     capabilities = capabilities
 }
 
@@ -79,4 +125,8 @@ function _G.toggle_diagnostics()
 end
 
 vim.api.nvim_create_user_command('ToggleDiagnostics', ':call v:lua.toggle_diagnostics()<CR>', {})
+
+-- nvim-navic
+-- vim.o.winbar = " %{%v:lua.vim.fn.expand('%F')%}  %{%v:lua.require'nvim-navic'.get_location()%}"
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
