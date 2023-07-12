@@ -44,5 +44,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'trmckay/based.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'udalov/kotlin-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 call plug#end()
