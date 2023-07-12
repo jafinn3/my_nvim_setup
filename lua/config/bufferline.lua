@@ -30,4 +30,4 @@ require("bufferline").setup{
     }
 }
 
-
+vim.keymap.set('n', '<Leader>p', '<cmd>BufferLinePick<cr>')
