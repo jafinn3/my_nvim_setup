@@ -44,6 +44,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'trmckay/based.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'udalov/kotlin-vim'
+Plug 'gen740/SmoothCursor.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'SmiteshP/nvim-navic'
