@@ -4,7 +4,6 @@ source $HOME/.config/nvim/general/mappings.vim
 source $HOME/.config/nvim/general/my_fns.vim
 source $HOME/.config/nvim/general/my_cmds.vim
 source $HOME/.config/nvim/plugins/easyalign.vim
-source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/nightfox.vim
 source $HOME/.config/nvim/plugins/vim-textobj.vim
