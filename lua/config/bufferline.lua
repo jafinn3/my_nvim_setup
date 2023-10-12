@@ -6,7 +6,7 @@ require("bufferline").setup{
             delay = 200,
             reveal = {'close'}
         },
-        buffer_close_icon = '',
+        buffer_close_icon = '󰖭',
         show_buffer_close_icons = true,
         show_close_icon = false,
         diagnostics = "coc",
