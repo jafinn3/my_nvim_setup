@@ -48,5 +48,6 @@ Plug 'gen740/SmoothCursor.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'SmiteshP/nvim-navic'
+Plug 'Exafunction/codeium.vim', { 'tag': '1.2.60' }
 
 call plug#end()
