@@ -34,7 +34,7 @@ navic.setup {
     highlight = false,
     separator = " > ",
     depth_limit = 4,
-    depth_limit_indicator = "..",
+    depth_limit_indicator = "...",
     safe_output = true,
     lazy_update_context = false,
     click = true
@@ -81,11 +81,11 @@ require('lspconfig')['clangd'].setup {
     capabilities = capabilities,
     settings = {
         clangd = {
-            path = '/opt/imc/llvm-13.0.0/bin/clangd',
+            path = '/opt/imc/llvm-16.0.0/bin/clangd',
             arguments = {
                 "--background-index",
                 "--compile-commands-dir=/home/user/git/fpga/",
-                "-clang-tidy=0"
+                "-clang-tidy=1"
             }
         }
     }
