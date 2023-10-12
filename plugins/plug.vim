@@ -49,5 +49,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'SmiteshP/nvim-navic'
 Plug 'Exafunction/codeium.vim', { 'tag': '1.2.60' }
+Plug 'bronson/vim-visual-star-search'
 
 call plug#end()
