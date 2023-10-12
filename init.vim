@@ -17,6 +17,7 @@ source $HOME/.config/nvim/plugins/nvimtree.vim
 source $HOME/.config/nvim/plugins/diffview.vim
 source $HOME/.config/nvim/plugins/git-blame.vim
 source $HOME/.config/nvim/plugins/gutentags.vim
+source $HOME/.config/nvim/plugins/codeium.vim
 source $HOME/.config/nvim/general/project_config.vim
 
 set completeopt=menu,menuone,noselect
