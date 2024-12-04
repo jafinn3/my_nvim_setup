@@ -25,7 +25,7 @@ set background=dark      " tell vim what the background color looks like
 
 set ruler
 set cursorline
-set scrolloff=2
+set scrolloff=10
 
 set termguicolors
 
@@ -40,3 +40,5 @@ autocmd BufRead,BufNewFile *.c1 set filetype=c
 autocmd BufRead,BufNewFile *.svjt set filetype=systemverilog
 autocmd BufReadPost *.kt setlocal filetype=kotlin
 autocmd BufReadPost *.kts setlocal filetype=kotlin
+
+command! -nargs=0 LspLogClean :execute "!echo '' > $HOME/.local/state/nvim/lsp.log"
