@@ -1,8 +1,15 @@
+" Attmept to install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Initialize plugins
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'junegunn/vim-easy-align'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -10,13 +17,10 @@ Plug 'airblade/vim-rooter'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kana/vim-textobj-user'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-surround'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'kshenoy/vim-signature'
-Plug 'liuchengxu/vim-which-key'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'rcarriga/nvim-notify'
@@ -41,6 +45,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-neotest/nvim-nio' " required for nvim-dap-ui...
 Plug 'trmckay/based.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'udalov/kotlin-vim'
@@ -48,7 +53,7 @@ Plug 'gen740/SmoothCursor.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'SmiteshP/nvim-navic'
-Plug 'Exafunction/codeium.vim', { 'tag': '1.2.60' }
+Plug 'Exafunction/codeium.vim', { 'tag': '1.8.49' }
 Plug 'bronson/vim-visual-star-search'
 
 call plug#end()

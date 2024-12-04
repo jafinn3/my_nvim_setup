@@ -1,5 +1,6 @@
-if getcwd() == expand('$HOME/git/fpga')
-    set path+=$HOME/git/fpga/bazel-bin/protocols/**/*
+if ((getcwd() == expand('$FALCON_TOP')) || (getcwd() == expand('$RR_TOP')))
+    set path+=$FALCON_TOP/bazel-bin/protocols/**/*
+    set path+=$RR_TOP/bazel-bin/protocols/**/*
     command! -nargs=0 OpenGeneratedSvjt :execute "silent! let output = system('$FALCON_TOP/scripts/open_generated_svjt.sh ' . shellescape(fnamemodify(expand('%'), ':t')))" | if v:shell_error | echomsg "Error: " . v:errmsg | else | execute "edit " . fnameescape(trim(output)) | endif
     set cc=120
 
@@ -16,9 +17,4 @@ if getcwd() == expand('$HOME/git/fpga')
     endfunction
 
     command! OpenBuildBazel :call OpenBuildBazel()
-endif
-
-if getcwd() == expand('$HOME/git/roadrunner')
-    set path+=$HOME/git/roadrunner/bazel-bin/protocols/**/*
-    set cc=120
 endif

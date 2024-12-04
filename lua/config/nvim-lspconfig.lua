@@ -71,7 +71,7 @@ require('lspconfig')['svlangserver'].setup {
             },
             excludeIndexing = {'bazel-fpga/external/verilator_v4.224/**/*.{v,vh,sv,svh}'},
             defines = {'DESIGN_SEL=designs_pkg::FALCON_NETWORK', 'BOARD_TYPE=boards_pkg::VU3P_SG2_IMC', 'HW_LINTING'},
-            launchConfiguration = {'/home/user/git/fpga/bazel-out/host/bin/external/verilator_v4.224/verilator_executable -sv --lint-only -Wwarn-style --Wno-PINCONNECTEMPTY --cdc --Wno-LITENDIAN --Wno-TIMESCALEMOD --Wno-CASEX +libext+.v +libext+.sv'}
+            launchConfiguration = {'/home/data/fpga/bazel-out/host/bin/external/verilator_v4.224/verilator_executable -sv --lint-only -Wwarn-style --Wno-PINCONNECTEMPTY --cdc --Wno-LITENDIAN --Wno-TIMESCALEMOD --Wno-CASEX +libext+.v +libext+.sv'}
         }
     }
 }
@@ -81,10 +81,10 @@ require('lspconfig')['clangd'].setup {
     capabilities = capabilities,
     settings = {
         clangd = {
-            path = '/opt/imc/llvm-16.0.0/bin/clangd',
+            path = '/opt/imc/llvm-latest/bin/clangd',
             arguments = {
                 "--background-index",
-                "--compile-commands-dir=/home/user/git/fpga/",
+                "--compile-commands-dir=/home/data/roadrunner",
                 "-clang-tidy=1"
             }
         }
@@ -102,21 +102,31 @@ require('lspconfig').kotlin_language_server.setup {
 
 -- Diagnostics settings & toggling
 
-vim.diagnostic.config({ signs = false })
+vim.diagnostic.config({
+    signs = false,
+    virtual_text = false,
+    underline = false,
+})
 
-vim.g.diagnostics_active = true
+vim.g.diagnostics_active = false
 function _G.toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
     vim.diagnostic.disable()
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        signs = false,
+        underline = false,
+      }
+    )
   else
     vim.g.diagnostics_active = true
     vim.diagnostic.enable()
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = true,
-        signs = true,
+        signs = false,
         underline = true,
         update_in_insert = false,
       }
