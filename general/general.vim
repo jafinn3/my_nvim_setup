@@ -42,3 +42,21 @@ autocmd BufReadPost *.kt setlocal filetype=kotlin
 autocmd BufReadPost *.kts setlocal filetype=kotlin
 
 command! -nargs=0 LspLogClean :execute "!echo '' > $HOME/.local/state/nvim/lsp.log"
+
+function! CopyModeCommand(action)
+    if a:action ==# 'disable'
+        set cc=80,120
+        set relativenumber
+        set number
+        set mouse=a
+    elseif a:action ==# 'enable'
+        set cc=
+        set norelativenumber
+        set nonumber
+        set mouse=i
+    else
+        echoerr "Invalid argument. Use ':CopyMode <enable/disable>'"
+    endif
+endfunction
+
+command! -nargs=1 Copymode call CopyModeCommand(<f-args>)
