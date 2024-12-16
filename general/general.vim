@@ -49,11 +49,13 @@ function! CopyModeCommand(action)
         set relativenumber
         set number
         set mouse=a
+        IndentLinesEnable
     elseif a:action ==# 'enable'
         set cc=
         set norelativenumber
         set nonumber
         set mouse=i
+        IndentLinesDisable
     else
         echoerr "Invalid argument. Use ':CopyMode <enable/disable>'"
     endif

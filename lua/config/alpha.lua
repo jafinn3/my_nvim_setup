@@ -36,3 +36,18 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "AlphaReady",
+    callback = function()
+        vim.cmd("IndentLinesDisable")
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufUnload", {
+    pattern = "<buffer>",
+    callback = function()
+        vim.cmd("IndentLinesEnable")
+    end,
+})
+
