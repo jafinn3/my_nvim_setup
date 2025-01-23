@@ -50,12 +50,16 @@ function! CopyModeCommand(action)
         set number
         set mouse=a
         IndentLinesEnable
+        GitBlameEnable
+        Gitsigns toggle_signs
     elseif a:action ==# 'enable'
         set cc=
         set norelativenumber
         set nonumber
         set mouse=i
         IndentLinesDisable
+        GitBlameDisable
+        Gitsigns toggle_signs
     else
         echoerr "Invalid argument. Use ':CopyMode <enable/disable>'"
     endif
