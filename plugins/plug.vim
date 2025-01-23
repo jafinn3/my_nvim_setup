@@ -31,7 +31,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'akinsho/bufferline.nvim'
-Plug 'ggandor/lightspeed.nvim'
+" Plug 'ggandor/lightspeed.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tiagovla/scope.nvim'
 Plug 'xiyaowong/virtcolumn.nvim'
@@ -55,5 +55,6 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'SmiteshP/nvim-navic'
 Plug 'Exafunction/codeium.vim', { 'tag': '1.8.49' }
 Plug 'bronson/vim-visual-star-search'
+Plug 'ggandor/leap.nvim'
 
 call plug#end()
